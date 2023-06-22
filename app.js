@@ -52,24 +52,13 @@ const seattle = {
       this.totalDailyCookies += oneHour;
     }
   },
-  totalOfDailyCookies: function () {
-    return this.cookiesEachHour * hours.length;
-  },
+  // totalOfDailyCookies: function () {
+  //   return this.cookiesEachHour * hours.length;
+  // },
 };
 seattle.calcCustomersEachHour();
 seattle.calcCookiesEachHour();
-seattle.totalOfDailyCookies();
-
-// parent and child tags
-let article = document.createElement("article");
-container.appendChild(article);
-
-let h3 = document.createElement("h3");
-h3.textContent = seattle.storeName;
-article.appendChild(h3);
-
-let ul = document.createElement("ul");
-article.appendChild(ul);
+// seattle.totalOfDailyCookies();
 
 //  the header row
 
@@ -84,10 +73,20 @@ function renderTable() {
   table.appendChild(headerRow);
 
   let tableRow = document.createElement("tr");
-  for (let i = 0; i < headerHours.length; i++) {
+
+  let storeCell = document.createElement("td");
+  storeCell.textContent = seattle.storeName;
+  tableRow.appendChild(storeCell);
+
+  for (let i = 0; i < seattle.cookiesEachHour.length; i++) {
     let headerCell = document.createElement("td");
+    headerCell.textContent = seattle.cookiesEachHour[i];
     tableRow.appendChild(headerCell);
   }
+
+  let totalCell = document.createElement("td");
+  totalCell.textContent = seattle.totalDailyCookies;
+  tableRow.appendChild(totalCell);
   table.appendChild(tableRow);
 }
 renderTable();

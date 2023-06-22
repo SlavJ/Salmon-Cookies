@@ -1,4 +1,5 @@
 table,
-th {
+th,
+td {
   border: solid 1px black;
 }
