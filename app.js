@@ -46,10 +46,12 @@ const seattle = {
   },
   calcCookiesEachHour: function () {
     for (let i = 0; i < hours.length; i++) {
-      const oneHour = this.cookiesEachHour.push(
-        Math.ceil(this.customersEachHour[i] * this.avgCookiesPerCust)
+      const cookiesInHour = Math.ceil(
+        this.customersEachHour[i] * this.avgCookiesPerCust
       );
-      this.totalDailyCookies += oneHour;
+      this.cookiesEachHour.push(cookiesInHour);
+
+      this.totalDailyCookies += cookiesInHour;
     }
   },
   // totalOfDailyCookies: function () {

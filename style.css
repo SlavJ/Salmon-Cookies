@@ -3,3 +3,11 @@ th,
 td {
   border: solid 1px black;
 }
+
+body {
+  background-color: salmon;
+}
+
+#submit {
+  background-color: red;
+}
